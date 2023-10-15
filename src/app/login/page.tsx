@@ -20,7 +20,7 @@ const LoginPage = () => {
       <hr />
         <label htmlFor="email">Email</label>
         <input
-          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
           type="email"
           name="email"
           id="email"
@@ -30,7 +30,7 @@ const LoginPage = () => {
         />
         <label htmlFor="password">Password</label>
         <input
-          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
           type="password"
           name="password"
           id="password"

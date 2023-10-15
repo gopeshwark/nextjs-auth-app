@@ -13,17 +13,17 @@ export async function POST(request: NextRequest) {
 
         // Check if all fields are there
         if (!username || !email || !password) {
-            return NextResponse.json({ error: "All fields are mandatory", status: 400 });
+            return NextResponse.json({ error: "All fields are mandatory"}, {status: 400 });
         }
 
         // check if user already exists
         const user = await User.findOne({ email });
         if (user) {
-            return NextResponse.json({ error: "User already exists", status: 409 });
+            return NextResponse.json({ error: "User already exists"}, {status: 409 });
         }
 
         // if all goes well, hash the password
-        const salt = await bcryptjs.getSalt(10);
+        const salt = await bcryptjs.genSalt(10);
         const encryptedPassword = await bcryptjs.hash(password, salt)
 
         // Save the user data to database
@@ -35,6 +35,6 @@ export async function POST(request: NextRequest) {
         console.log(savedUser);
         return NextResponse.json({ message: "User created successfully", success: true, data: savedUser })
     } catch (error: any) {
-        return NextResponse.json({ error: error.message, status: 500 })
+        return NextResponse.json({ error: error.message}, {status: 500 })
     }
 }
